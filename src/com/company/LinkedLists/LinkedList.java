@@ -109,6 +109,24 @@ public class LinkedList {
             current = current.next;
         }
     }
+
+    public boolean hasCycle() {
+        if (head == null) return false;
+
+        Node fast = head.next;
+        Node slow = head;
+
+        while (fast != null) {
+            if (fast == slow) {
+                return true;
+            }
+
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return false;
+    }
+
 }
 
 class Node {
